@@ -2,24 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
   <title>HW10 - Etsy Recreation</title>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
+
 <body>
 
-  <div id="chimp"></div>
+  <div id="header-nav"></div>
 
-  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <div class="content"><h1>Crazy Apes</h1>
 
-  <script type="text/template" data-template-name="chimpanzeeResults">
-    
-
+  <ul class="chimps-list"></ul>
 
 
-  </script>
 
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script type="text/template" data-template-name="chimpResults">
+      <li>
+        <div class="container">
+          <div class="container-top">
+            <div><img src="<% images %>" title="<% description %>"></div>
+          </div>
+          <div class="container-bottom">
+            <div><a href="<% url %>"><% title %></a></div>
+            <div><% price %> <% currency %></div>
+            <div><% shop %></div>
+          </div>
+        </div>
+      </li>
+
+    </script>
 
   <script type="text/javascript" src="data.js"></script>
   <script type="text/javascript" src="main.js"></script>
+
+  </div>
+
 </body>
+
 </html>
