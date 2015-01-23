@@ -14,7 +14,7 @@
         price: chimp.price,
         currency: chimp.currency_code,
         description: chimp.description,
-        images: chimp.Images[0].url_fullxfull,
+        images: chimp.Images[0].url_170x135,
         shop: chimp.Shop.shop_name,
         url: chimp.url,
       });

@@ -19,18 +19,14 @@
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 
     <script type="text/template" data-template-name="chimpResults">
-      <li>
         <div class="container">
-          <div class="container-top">
+          <div class="item">
             <div><img src="<% images %>" title="<% description %>"></div>
-          </div>
-          <div class="container-bottom">
-            <div><a href="<% url %>"><% title %></a></div>
-            <div><% price %> <% currency %></div>
+            <div><a href="<% url %>"><p class="ellipsis"><% title %></p></a></div>
+            <div>$<% price %> <% currency %></div>
             <div><% shop %></div>
           </div>
         </div>
-      </li>
 
     </script>
 
