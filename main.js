@@ -8,6 +8,32 @@
 
     var $list = $('.chimps-list'); // targets ul with class chimp in the html
 
+
+    $(".dropdown").change(function(sortStuff) {
+      if ($(".dropdown option:selected").text() == "Lowest Price") {
+        chimps = _.sortBy(chimps, "price");
+      } else if ($(".dropdown option:selected").text() == "Highest Price") {
+        chimps = _.sortBy(chimps, "price").reverse();
+      }
+      renderListings(chimps);
+    });
+
+    function renderListings(data) {
+      $list.empty();
+      data.forEach(function(chimp) {
+        var chimpText = renderTemplate('chimpResults', {
+          title: chimp.title,
+          price: chimp.price,
+          currency: chimp.currency_code,
+          description: chimp.description,
+          images: chimp.Images[0].url_170x135,
+          shop: chimp.Shop.shop_name,
+          url: chimp.url,
+        });
+        $list.append(chimpText);
+      });
+    }
+
     chimps.forEach(function(chimp){
       var chimpText = renderTemplate('chimpResults', {
         title: chimp.title,
