@@ -9,35 +9,35 @@
 <body>
 
   <div class="header-nav">
-    <div>
-      <img class="logo" src="img/etsy-logo.png">
-
-      <h1></h1>
-
-      <input class="search" id="seacrh" type="text" placeholder="Search Etsy">
-
-      <button class="button" type="submit" value="Search">Search</button>
-
-      <select class="dropdown">
-        <option><a href="#"</a>Relevance</option>
-        <option>Highest Price</option>
-        <option>Lowest Price</option>
-      </select>
-
-      <h2><a href="index.html">Return To: 'Sorted By Relevance'</a></h2>
-
-    </div>
+    <ul>
+      <li>
+        <img class="logo" src="img/etsy.png">
+      </li>
+      <li>
+        <form class="search-form" method="GET" action="Search">
+          <div class="search-input"><input class="search-field" id="search-field" type="search" placeholder="Search Etsy">
+          <button class="button" type="submit" value="Search">Search</button></div>
+        </form>
+      </li>
+      <li>
+        <select class="dropdown">
+          <option>Relevance</option>
+          <option>Highest Price</option>
+          <option>Lowest Price</option>
+        </select>
+      </li>
+    </ul>
   </div>
 
   <div class="content">
 
-  <ul class="chimps-list"></ul>
+  <ul class="items-list"></ul>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
 
 
-    <script type="text/template" data-template-name="chimpResults">
+    <script type="text/template" data-template-name="itemResults">
         <div class="container">
           <div class="item">
             <div><img src="<% images %>" title="<% description %>"></div>

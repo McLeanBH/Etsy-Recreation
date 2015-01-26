@@ -4,58 +4,35 @@ $visual-grid: false;
 
 
 body {
-  background:#dfdfdf;
-
+  background: #dfdfdf;
 }
 
 .header-nav {
+  display: inline-block;
   margin: 0 auto;
   background-color: #fff;
   height: 150px;
+  width: 100%;
 }
 
-h1, h2 {
-  font-size: 50px;
-  padding-left: 60px;
-  padding-right: 15px;
-  text-align: center;
-  display: inline;
-  vertical-align: middle;
-  color: #000;
-}
-
-h1 {
-  padding-right: 5px;
-}
-
-h2 {
-  text-decoration: underline;
-  padding-left: 10px;
-  font-size: 15px;
-  color: #64CD36;
-
-  :after {
-    color: #64CD36;
-  }
-
-}
-
-input .search, button .button {
+.header-nav ul li {
   display: inline-block;
+}
+
+input .search,
+button .button {
+  display: inline-block;
+  transition: all .5s ease;
   margin: 2px 10px;
   border: 1px solid #eedb3f;
   border-radius: 10px;
+  box-shadow: inset 0 4px rgba(0, 0, 0, .2);
   background-color: #55acee;
+  cursor: pointer;
   width: 30px;
   height: 25px;
   color: #303030;
-
-  cursor: pointer;
-
-  box-shadow: inset 0 4px rgba(0, 0, 0, .2);
-
   user-select: none;
-  transition: all .5s ease;
 }
 
 button:hover {
@@ -76,24 +53,24 @@ select .dropdown {
 
 .logo {
   display: inline;
+  padding-bottom: 20px;
   padding-left: 40px;
-  text-align: center;
   height: 150px;
   vertical-align: middle;
+  text-align: center;
 }
 
 .seacrh {
-  display: inline;
+  display: inline-block;
   padding-left: 60px;
   text-align: center;
 
-    input {
-      height: 150px;
+  input {
+    height: 150px;
     }
 }
 
 .content {
-  margin-top: 20px;
   background-color: #f5f5f1;
 }
 
@@ -112,16 +89,16 @@ ul {
   text-decoration: none;
 
   img {
-    padding:5px;
+    padding: 5px;
     width: 100%;
     height: 100%;
   }
 }
 
 .item {
-  background:#fff;
-  padding:5px;
   box-shadow: 0 0 30px -10px #999;
+  background: #fff;
+  padding: 5px;
 }
 
 .pricing {
@@ -129,15 +106,15 @@ ul {
 }
 
 .ellipsis {
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .span-footer {
-  height: 10px;
   background-color: #fff;
+  height: 10px;
 }
 
 .footer {
@@ -151,5 +128,4 @@ ul {
     display: inline-block;
     text-decoration: none;
   }
-
 }

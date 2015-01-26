@@ -1,50 +1,56 @@
 (function(){
   'use strict';
 
-
-  var chimps = rawChimpData.results; // figure out what i need here using the console.
-
   $(document).ready(function(){ // runs the function on document ready
 
-    var $list = $('.chimps-list'); // targets ul with class chimp in the html
+    var results = rawData.results;
+    var $list = $('.items-list'); // targets ul with class item in the html
 
+/* sorting instructions
+1. Write a function that returns sorted data by the property we passed to the function.
+2. Write an event handler. --> on event.
+3. Remove the current listings. --> on event.
+4. Append the sorted data.
+*/
 
     $(".dropdown").change(function(sortStuff) {
       if ($(".dropdown option:selected").text() == "Lowest Price") {
-        chimps = _.sortBy(chimps, "price");
+        results = _.sortBy(results, "price");
       } else if ($(".dropdown option:selected").text() == "Highest Price") {
-        chimps = _.sortBy(chimps, "price").reverse();
+        results = _.sortBy(results, "price").reverse();
+      } else if ($(".dropdown option:selected").text() == "Relevance") {
+        results = rawData.results;
       }
-      renderListings(chimps);
+      renderListings(results);
     });
 
     function renderListings(data) {
       $list.empty();
-      data.forEach(function(chimp) {
-        var chimpText = renderTemplate('chimpResults', {
-          title: chimp.title,
-          price: chimp.price,
-          currency: chimp.currency_code,
-          description: chimp.description,
-          images: chimp.Images[0].url_170x135,
-          shop: chimp.Shop.shop_name,
-          url: chimp.url,
+      data.forEach(function(item) {
+        var itemText = renderTemplate('itemResults', {
+          title: item.title,
+          price: item.price,
+          currency: item.currency_code,
+          description: item.description,
+          images: item.Images[0].url_170x135,
+          shop: item.Shop.shop_name,
+          url: item.url,
         });
-        $list.append(chimpText);
+        $list.append(itemText);
       });
     }
 
-    chimps.forEach(function(chimp){
-      var chimpText = renderTemplate('chimpResults', {
-        title: chimp.title,
-        price: chimp.price,
-        currency: chimp.currency_code,
-        description: chimp.description,
-        images: chimp.Images[0].url_170x135,
-        shop: chimp.Shop.shop_name,
-        url: chimp.url,
+    results.forEach(function(item){
+      var itemText = renderTemplate('itemResults', {
+        title: item.title,
+        price: item.price,
+        currency: item.currency_code,
+        description: item.description,
+        images: item.Images[0].url_170x135,
+        shop: item.Shop.shop_name,
+        url: item.url,
       });
-      $list.append(chimpText);
+      $list.append(itemText);
     });
 
     function renderTemplate(name, data) {
@@ -57,3 +63,23 @@
 
   });
 })();
+
+
+
+
+
+
+
+
+
+
+
+  // data.results.forEach(function(item){
+  //
+  //   var title = item.title;
+  //   var short_text = $.trim(title).substring(0,10);
+  //   //console.log(title);
+  //   console.log(item.Shop);
+  //
+  //   $('.main_area').append('<div class="image_container"><div class="item_image"><a href="' + item.url + '"><img src="' + item.Images[0].url_170x135 + '"></a><p>' + item.title.substring(0,34) + "..." + "<p>" + item.Shop.shop_name + "</p>" + "<p>" + item.price + " " + item.currency_code + "</p>" + '</p></div><!-- .item_image --></div><!-- .image_container -->');
+  // });
