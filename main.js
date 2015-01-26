@@ -13,6 +13,23 @@
 4. Append the sorted data.
 */
 
+// make form to not refresh the page, get it to log the search term entered. what's inside the event -- see beer example
+
+    $('.search-form').on('submit', function(event) {
+      event.preventDefault();
+      console.log(event); //
+      $(this).find('input');
+    });
+
+    $.ajax({
+      url: "https://api.etsy.com/v2/listings/active.js?api_key=cdwxq4soa7q4zuavbtynj8wx&keywords=tacos&includes=Images,Shop",
+      type: "GET",
+      dataType: 'jsonp',
+    }).done(function(event){
+      // console.log(data);
+    });
+
+
     $(".dropdown").change(function(sortStuff) {
       if ($(".dropdown option:selected").text() == "Lowest Price") {
         results = _.sortBy(results, "price");
@@ -63,23 +80,3 @@
 
   });
 })();
-
-
-
-
-
-
-
-
-
-
-
-  // data.results.forEach(function(item){
-  //
-  //   var title = item.title;
-  //   var short_text = $.trim(title).substring(0,10);
-  //   //console.log(title);
-  //   console.log(item.Shop);
-  //
-  //   $('.main_area').append('<div class="image_container"><div class="item_image"><a href="' + item.url + '"><img src="' + item.Images[0].url_170x135 + '"></a><p>' + item.title.substring(0,34) + "..." + "<p>" + item.Shop.shop_name + "</p>" + "<p>" + item.price + " " + item.currency_code + "</p>" + '</p></div><!-- .item_image --></div><!-- .image_container -->');
-  // });
