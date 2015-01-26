@@ -17,18 +17,18 @@
 
     $('.search-form').on('submit', function(event) {
       event.preventDefault();
-      console.log(event); //
-      $(this).find('input');
-    });
-
-    $.ajax({
-      url: "https://api.etsy.com/v2/listings/active.js?api_key=cdwxq4soa7q4zuavbtynj8wx&keywords=tacos&includes=Images,Shop",
-      type: "GET",
-      dataType: 'jsonp',
-    }).done(function(event){
-      // console.log(data);
-    });
-
+      // console.log(event); //
+      var keyword = $(this).find('input').val();
+      $.ajax({
+        url: "https://api.etsy.com/v2/listings/active.js?api_key=cdwxq4soa7q4zuavbtynj8wx&keywords=" + keyword + "&includes=Images,Shop",
+        type: "GET",
+        dataType: 'jsonp',
+      }).done(function(data){
+        $list.empty();
+        renderListings(data.results);
+        console.log(data);
+      });
+  });
 
     $(".dropdown").change(function(sortStuff) {
       if ($(".dropdown option:selected").text() == "Lowest Price") {
